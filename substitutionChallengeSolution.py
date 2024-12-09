@@ -57,7 +57,7 @@ def find_shift(frequencies):
     shift = (ord(most_frequent_letter) - ord(target_letter)) % 26
     
     return shift
-
+#calculate shift number
 def decode_message(message, shift):
     decoded_message = []
 
@@ -69,21 +69,17 @@ def decode_message(message, shift):
                 decoded_char = chr((ord(char) - ord('A') - shift) % 26 + ord('A'))
             decoded_message.append(decoded_char)
         else:
-            # Non-alphabetic characters remain unchanged
+ 
             decoded_message.append(char)
 
     return ''.join(decoded_message)
 #main function with inputs and function calls
 def main():
     encoded_message = input()
-
     frequencies = frequency_analysis(encoded_message)
-
     shift = find_shift(frequencies)
-
-
     decoded_message = decode_message(encoded_message, shift)
-
+    #print result 
     print(decoded_message)
 
 if __name__ == "__main__":

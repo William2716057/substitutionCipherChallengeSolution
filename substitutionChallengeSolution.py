@@ -34,10 +34,10 @@ frequency_dict = {
 def frequency_analysis(text):
 
     text = ''.join(filter(str.isalpha, text)).lower()
-
+    #get total count
     letter_count = Counter(text)
-
     total_letters = sum(letter_count.values())
+    #formula for calculating frequencies
     letter_frequencies = {letter: (count / total_letters) * 100 for letter, count in letter_count.items()}
 
     sorted_frequencies = sorted(letter_frequencies.items(), key=lambda x: x[1], reverse=True)
@@ -60,7 +60,7 @@ def find_shift(frequencies):
 #calculate shift number
 def decode_message(message, shift):
     decoded_message = []
-
+    #perform for upper and lower case
     for char in message:
         if char.isalpha():
             if char.islower():
